@@ -111,8 +111,8 @@
         "experimentalDecorators": true
     },
     "include": [
-    "src/**/*",
-    "app.spec.ts"            // Include this test file explicitly
-    ],
+        "src/**/*",
+        "app.spec.ts" // Include this test file explicitly
+    ]
     // "exclude": ["**/*.spec.ts", "tests"]
 }
