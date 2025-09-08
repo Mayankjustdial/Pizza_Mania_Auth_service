@@ -17,6 +17,7 @@
     "devDependencies": {
         "@eslint/js": "^9.35.0",
         "@types/express": "^5.0.3",
+        "@types/http-errors": "^2.0.5",
         "@types/node": "^24.3.1",
         "@typescript-eslint/eslint-plugin": "^8.42.0",
         "@typescript-eslint/parser": "^8.42.0",
@@ -39,6 +40,7 @@
     "dependencies": {
         "dotenv": "^17.2.2",
         "express": "^5.1.0",
+        "http-errors": "^2.0.0",
         "winston": "^3.17.0"
     }
 }
