@@ -110,5 +110,9 @@
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true
     },
-    "exclude": ["**/*.spec.ts", "tests"]
+    "include": [
+    "src/**/*",
+    "app.spec.ts"            // Include this test file explicitly
+    ],
+    // "exclude": ["**/*.spec.ts", "tests"]
 }
