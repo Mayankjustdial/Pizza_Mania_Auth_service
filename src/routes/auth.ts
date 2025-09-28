@@ -8,6 +8,8 @@ import logger from '../config/logger'
 import registorValidator from '../validators/registor-validator'
 import { TokenService } from '../services/TokenService'
 import { RefreshToken } from '../entity/refreshToken'
+import loginValidator from '../validators/login-validator'
+import { CredentialService } from '../services/CredentialService'
 
 // Initialize router
 const router = express.Router()
@@ -18,7 +20,13 @@ const userService = new UserService(userRepository)
 const refreshTokenRepository = AppDataSource.getRepository(RefreshToken)
 
 const tokenService = new TokenService(refreshTokenRepository)
-const authController = new AuthController(userService, logger, tokenService)
+const credentialService = new CredentialService()
+const authController = new AuthController(
+    userService,
+    logger,
+    tokenService,
+    credentialService,
+)
 
 // Route with validation
 router.post(
@@ -27,4 +35,12 @@ router.post(
     (req: Request, res: Response, next: NextFunction) =>
         authController.register(req, res, next),
 )
+
+router.post(
+    '/login',
+    loginValidator,
+    (req: Request, res: Response, next: NextFunction) =>
+        authController.login(req, res, next),
+)
+
 export default router
