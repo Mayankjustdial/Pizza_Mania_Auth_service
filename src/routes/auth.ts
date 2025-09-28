@@ -7,6 +7,7 @@ import logger from '../config/logger'
 
 import registorValidator from '../validators/registor-validator'
 import { TokenService } from '../services/TokenService'
+import { RefreshToken } from '../entity/refreshToken'
 
 // Initialize router
 const router = express.Router()
@@ -14,7 +15,9 @@ const router = express.Router()
 // Get User repository and create services/controllers
 const userRepository = AppDataSource.getRepository(User)
 const userService = new UserService(userRepository)
-const tokenService = new TokenService()
+const refreshTokenRepository = AppDataSource.getRepository(RefreshToken)
+
+const tokenService = new TokenService(refreshTokenRepository)
 const authController = new AuthController(userService, logger, tokenService)
 
 // Route with validation
