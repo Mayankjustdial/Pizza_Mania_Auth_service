@@ -14,6 +14,7 @@ export default defineConfig(
             'eslint.config.mjs',
             'jest.config.js',
             'scripts/generateKeys.mjs',
+            'scripts/convertPemToJwk.mjs',
         ],
     },
     {
